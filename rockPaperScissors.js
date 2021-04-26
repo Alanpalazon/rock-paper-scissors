@@ -31,7 +31,7 @@ function playerPlay(){
 
 
 
-// function to play single round 
+// game loop function
 function playGame(){
         let playerScore = 0;
         let compScore = 0;
@@ -59,8 +59,9 @@ function playGame(){
             } while (playerScore < 5 || compScore < 5);     
     }
 
-            
+ 
 
+//funtion to give choice whether to play again or quit game - FIX NO RESTARTING GAME BUG 
 function playAgain(){
     let playAgain;
     while(playAgain != "yes" && playAgain != "no"){
@@ -68,7 +69,7 @@ function playAgain(){
         playAgain.toLowerCase();
     }
     if (playAgain == "yes"){ playGame(); return playAgain;}
-    else if (playAgain == "no"){ console.log("Thanks for playing. Refresh to play again"); return playAgain;}  
+    else if (playAgain == "no"){ console.log("Thanks for playing. Refresh to play again"); return playAgain;} //GAME RESTARTS IF TRUE WHEN  IT SHOULDNT  
 }
  
 
