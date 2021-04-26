@@ -32,37 +32,50 @@ function playerPlay(){
 
 
 // function to play single round 
-function playRound(playerSelection, computerSelection){
+function playGame(){
         let playerScore = 0;
         let compScore = 0;
-        if      (playerSelection == computerSelection){ console.log("It's a draw");
-           console.log(`You: ${ playerScore } Computer: ${compScore}.`);} 
-        else if (playerSelection == options[0] && computerSelection == options[1]){ console.log(`You win, ${playerSelection} kills ${computerSelection}`); 
-                  playerScore++; 
-                  console.log(`You: ${ playerScore } Computer: ${compScore}.`);}
-        else if (playerSelection == options[1] && computerSelection == options[2]){ console.log(`You win, ${playerSelection} kills ${computerSelection}!`);
-                  playerScore++;
-                  console.log(`You: ${ playerScore } Computer: ${compScore}.`);}
-        else if (playerSelection == options[2] && computerSelection == options[0]){ console.log(`You win, ${playerSelection} kills ${computerSelection}!`);
-                  playerScore++;
-                  console.log(`You: ${ playerScore } Computer: ${compScore}.`);}
-        else{    console.log(`You chose ${ playerSelection}. You lose, ${ computerSelection } kills ${ playerSelection}!`); 
-                  compScore++;
-                  console.log(`You: ${ playerScore } Computer: ${compScore}.`);}  
+        do{  
+            let playerGo = playerPlay();
+            let computerGo = computerPlay();
+            computerGo;
+            playerGo;
+            if      (playerGo == computerGo){ console.log("It's a draw");
+                    console.log(`You: ${ playerScore } Computer: ${compScore}.`);} 
+            else if (playerGo == options[0] && computerGo == options[1]){ console.log(`You win, ${playerGo} kills ${computerGo}`); 
+                    playerScore++; 
+                    console.log(`You: ${ playerScore } Computer: ${compScore}.`);}
+            else if (playerGo == options[1] && computerGo == options[2]){ console.log(`You win, ${playerGo} kills ${computerGo}!`);
+                    playerScore++;
+                    console.log(`You: ${ playerScore } Computer: ${compScore}.`);}
+            else if (playerGo == options[2] && computerGo == options[0]){ console.log(`You win, ${playerGo} kills ${computerGo}!`);
+                    playerScore++;
+                    console.log(`You: ${ playerScore } Computer: ${compScore}.`);}
+            else{   console.log(`You lose, ${ computerGo } kills ${ playerGo}!`); 
+                    compScore++;
+                    console.log(`You: ${ playerScore } Computer: ${compScore}.`);}    
+            if      (playerScore == 5){console.log("You win the game!"); playAgain();}            
+            else if (compScore == 5){console.log("Computer wins the game!"); playAgain();}
+            } while (playerScore < 5 || compScore < 5);     
     }
-        
 
+            
 
-
-
-
-        
-       
+function playAgain(){
+    let playAgain;
+    while(playAgain != "yes" && playAgain != "no"){
+        playAgain = prompt("Play again? Enter 'yes' or 'no'.");     
+        playAgain.toLowerCase();
+    }
+    if (playAgain == "yes"){ playGame(); return playAgain;}
+    else if (playAgain == "no"){ console.log("Thanks for playing. Refresh to play again"); return playAgain;}  
+}
  
 
 //FUNCTION CALLS
 
 
+playGame();
 
 
 
