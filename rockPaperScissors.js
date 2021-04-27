@@ -1,4 +1,6 @@
-// //Glob vars 
+// Basic console game complete - will need a lot of changes before publishable 
+
+//Glob vars 
 const options = ["toad", "insect","snake"];
 
 
@@ -7,7 +9,7 @@ const options = ["toad", "insect","snake"];
 
 //random number generator for computer turn 
 function randomNumber(min,max){
-    let newRandNum = Math.floor(Math.random()* (max - min) + min);
+    let newRandNum = Math.floor(Math.random()*(max - min) + min);
     return newRandNum;
 }
 
@@ -31,7 +33,8 @@ function playerPlay(){
 
 
 
-// game loop function -- Too lazy to change but loop may also work by just using playerPlay() and computerPlay() without storing them as variables | also null handling not working?????
+// game loop function -- Too lazy to change but loop may also work by just using playerPlay() and computerPlay() without storing them as variables
+// also null handling not working?????
 function playGame(){
         let playerScore = 0;
         let compScore = 0;
@@ -40,7 +43,6 @@ function playGame(){
             let computerGo = computerPlay();
             computerGo;
             playerGo;
-            if      (playerGo === false){console.log("Forfei round");}
             if      (playerGo == computerGo){ console.log("It's a draw");
                     console.log(`You: ${ playerScore } Computer: ${compScore}.`);} 
             else if (playerGo == options[0] && computerGo == options[1]){ console.log(`You win, ${playerGo} kills ${computerGo}`); 
