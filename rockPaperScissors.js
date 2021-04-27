@@ -31,7 +31,7 @@ function playerPlay(){
 
 
 
-// game loop function
+// game loop function -- Too lazy to change but loop may also work by just using playerPlay() and computerPlay() without storing them as variables | also null handling not working?????
 function playGame(){
         let playerScore = 0;
         let compScore = 0;
@@ -40,6 +40,7 @@ function playGame(){
             let computerGo = computerPlay();
             computerGo;
             playerGo;
+            if      (playerGo === false){console.log("Forfei round");}
             if      (playerGo == computerGo){ console.log("It's a draw");
                     console.log(`You: ${ playerScore } Computer: ${compScore}.`);} 
             else if (playerGo == options[0] && computerGo == options[1]){ console.log(`You win, ${playerGo} kills ${computerGo}`); 
@@ -61,7 +62,7 @@ function playGame(){
 
  
 
-//funtion to give choice whether to play again or quit game - FIX NO RESTARTING GAME BUG 
+//funtion to give choice whether to play again or quit game 
 function playAgain(){
     let playAgain;
     while(playAgain != "yes" && playAgain != "no"){
@@ -69,7 +70,7 @@ function playAgain(){
         playAgain.toLowerCase();
     }
     if (playAgain == "yes"){ playGame(); return playAgain;}
-    else if (playAgain == "no"){ console.log("Thanks for playing. Refresh to play again"); return playAgain;} //GAME RESTARTS IF TRUE WHEN  IT SHOULDNT  
+    else if (playAgain == "no"){ console.log("Thanks for playing. Bye!"); window.alert("Game over. Press refresh to start");} 
 }
  
 
