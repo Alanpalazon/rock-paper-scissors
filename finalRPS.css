@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+}
+
+
+
+body{
+    background-color:  rgba(179, 141, 20, 0.2);
+
+    width: 80%;
+    margin: 2% auto;
+}
+
+.game-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+}
+
+
+  
+.game-container:before {
+    content: "";
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    filter: blur(10px);
+    margin: -20px;
+}
+
+.game-container, header, .scores,
+#announcement-score{
+    border-radius: 5px;
+}
+
+#insect, #toad, #snake{
+    border-radius: 3px;
+}
+
+header{
+    background-color: rgba(19, 148, 106); 
+    width: 80%;
+    margin: 3% auto;
+}
+
+.img-options-container{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: 3% auto;
+}
+
+.img-options{
+   width: 80%;
+
+}
+
+#insect,
+#toad,
+#snake{
+     width: 100%;
+     height: 100%;
+     
+}
+
+.score-container{
+    width: 60%;
+    display: flex;
+    margin: 3% auto;
+}
+
+.scores{
+    width: 100%;
+}
+
+#announcement{
+    margin: 0 auto;
+    margin: 3% auto;
+ 
+}
