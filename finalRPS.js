@@ -1,67 +1,46 @@
-// // Basic console game complete - will need a lot of changes before publishable 
 
-// //Glob vars 
-// const options = ["toad", "insect","snake"];
-
+ const options = document.querySelectorAll('.img-options');
+ let scores = [0,0]; //find a way to make local 
 
 
-// //FUNCTIONS 
+function randomNumber(min,max){
+    let newRandNum = Math.floor(Math.random()*(max - min) + min);
+    return newRandNum;
+}
 
-// //random number generator for computer turn 
-// function randomNumber(min,max){
-//     let newRandNum = Math.floor(Math.random()*(max - min) + min);
-//     return newRandNum;
-// }
+function computerPlay(){
+    let computerSelect = options[randomNumber(0,3)];
+    computerSelect = computerSelect.id
+    console.log(computerSelect);
+    return computerSelect
+}
 
+function playerPlay(){
+    let playerAnswer = "hello";
+    console.log(playerAnswer);
+    return playerAnswer;    
+}
 
-// //computer randomly chooses 
-// function computerPlay(){
-//     let computerSelect = options[randomNumber(0,3)];
-//     return computerSelect;
-// }
-
-
-// //player inputs choice - Need to add null handling 
-// function playerPlay(){
-//     let playerAnswer = prompt("Please enter either 'toad', 'snake' or 'insect'");
-//     playerAnswer = playerAnswer.toLowerCase();
-//     while(playerAnswer !== options[0] && playerAnswer !== options[1] && playerAnswer !== options[2]){
-//           playerAnswer = prompt("Try again");
-//           playerAnswer = playerAnswer.toLowerCase();} 
-//     if(playerAnswer === options[0] || playerAnswer === options[1] || playerAnswer === options[2]){console.log(`You choose ${ playerAnswer}.`); return playerAnswer;}  
-// }
-
-
-
-// // game loop function -- Too lazy to change but loop may also work by just using playerPlay() and computerPlay() without storing them as variables
-// // also null handling not working?????
-
-// function playGame(){  
-//     let playerScore = 0;
-//     let compScore = 0;
-//     do{  
-//         let playerGo = playerPlay();
-//         let computerGo = computerPlay();
-//         computerGo;
-//         playerGo;
-//         if      (playerGo == computerGo){ console.log("It's a draw");
-//                 console.log(`You: ${ playerScore } Computer: ${compScore}.`);} 
-//         else if (playerGo == options[0] && computerGo == options[1]){ console.log(`You win, ${playerGo} kills ${computerGo}`); 
-//                 playerScore++; 
-//                 console.log(`You: ${ playerScore } Computer: ${compScore}.`);}
-//         else if (playerGo == options[1] && computerGo == options[2]){ console.log(`You win, ${playerGo} kills ${computerGo}!`);
-//                 playerScore++;
-//                 console.log(`You: ${ playerScore } Computer: ${compScore}.`);}
-//         else if (playerGo == options[2] && computerGo == options[0]){ console.log(`You win, ${playerGo} kills ${computerGo}!`);
-//                 playerScore++;
-//                 console.log(`You: ${ playerScore } Computer: ${compScore}.`);}
-//         else{   console.log(`You lose, ${ computerGo } kills ${ playerGo}!`); 
-//                 compScore++;
-//                 console.log(`You: ${ playerScore } Computer: ${compScore}.`);}    
-//         if      (playerScore == 5){console.log("You win the game!"); playAgain();}            
-//         else if (compScore == 5){console.log("Computer wins the game!"); playAgain();}
-//         } while (playerScore < 5 || compScore < 5);     
-// }
+function playRound(){ 
+        let playerGo = playerPlay();
+        let computerGo = computerPlay();
+        computerGo;
+        playerGo;
+        if      (playerGo == computerGo){ console.log("It's a draw");
+                console.log(`You: ${scores[0]} Computer: ${scores[1]}.`); return scores;} 
+        else if (playerGo == options[0].id && computerGo == options[2].id){ console.log(`You win, insect kills snake!`); 
+                scores[0]++; 
+                console.log(`You: ${scores[0]} Computer: ${scores[1]}.`); return scores;}
+        else if (playerGo == options[1].id && computerGo == options[0].id){ console.log(`You win, toad kills insect!`);
+                scores[0]++;
+                console.log(`You: ${scores[0]} Computer: ${scores[1]}.`); return scores;}
+        else if (playerGo == options[2].id && computerGo == options[1].id){ console.log(`You win, snake kills toad!`);
+                scores[0]++;
+                console.log(`You: ${scores[0]} Computer: ${scores[1]}.`); return scores;}
+        else{   console.log(`You lose, ${ computerGo } kills ${ playerGo}!`); 
+                scores[1]++;
+                console.log(`You: ${scores[0]} Computer: ${scores[1]}.`); return scores;}        
+}
     
 
 
@@ -79,12 +58,13 @@
 
  
 
-// //FUNCTION CALLS
+function playGame(){ 
+options.forEach(option => option.addEventListener('click', playRound));
+    if      (scores[0] == 5){console.log("You win the game!");return}            
+    else if (scores[1] == 5){console.log("Computer wins the game!"); return;}
+    console.log(scores);
+    return scores;
+}
 
-
-// playGame();
-
-
-
-
+playGame();
 

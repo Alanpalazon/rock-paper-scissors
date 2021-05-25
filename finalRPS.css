@@ -6,9 +6,8 @@
 
 body{
     background-color:  rgba(179, 141, 20, 0.2);
-
     width: 80%;
-    margin: 2% auto;
+    margin: 3% auto;
 }
 
 .game-container{
@@ -44,14 +43,12 @@ body{
     border-radius: 5px;
 }
 
-#insect, #toad, #snake{
-    border-radius: 3px;
-}
 
 header{
     background-color: rgba(19, 148, 106); 
     width: 80%;
     margin: 3% auto;
+    border: 3px solid #adaca6;
 }
 
 .img-options-container{
@@ -62,22 +59,24 @@ header{
 }
 
 .img-options{
-   width: 80%;
+   width: 85%;
 
 }
 
-#insect,
-#toad,
-#snake{
-     width: 100%;
-     height: 100%;
-     
+#Insect-img,
+#Toad-img,
+#Snake-img{
+     width: 95%;
+     height: 95%;
+     margin: 20px;
+     border: 3px solid #adaca6;
+     border-radius: 3px;
 }
 
 .score-container{
     width: 60%;
     display: flex;
-    margin: 3% auto;
+    margin: 0 auto;
 }
 
 .scores{
@@ -87,5 +86,9 @@ header{
 #announcement{
     margin: 0 auto;
     margin: 3% auto;
- 
+}
+
+
+#play-again{
+    margin: 1% auto;
 }
