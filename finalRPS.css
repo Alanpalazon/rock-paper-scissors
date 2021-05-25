@@ -48,14 +48,14 @@ header{
     background-color: rgba(19, 148, 106); 
     width: 80%;
     margin: 3% auto;
-    border: 3px solid #adaca6;
+    box-shadow:8px 8px 8px #adaca6;
 }
 
 .img-options-container{
     display: flex;
     justify-content: center;
     width: 60%;
-    margin: 3% auto;
+    margin: 0 auto 3% auto;
 }
 
 .img-options{
@@ -69,8 +69,17 @@ header{
      width: 95%;
      height: 95%;
      margin: 20px;
-     border: 3px solid #adaca6;
+     box-shadow: 5px 5px 5px #adaca6;
      border-radius: 3px;
+}
+
+#Insect-img:hover,
+#Toad-img:hover,
+#Snake-img:hover{
+    transform: scale(1.01);
+    transition-duration: 0.4s;
+    box-shadow: 0 0 0 8px rgba(173, 172, 166, 0.6);
+   
 }
 
 .score-container{
@@ -92,3 +101,8 @@ header{
 #play-again{
     margin: 1% auto;
 }
+
+#play-again:hover{
+    transform: scale(1.02);
+} 
+
