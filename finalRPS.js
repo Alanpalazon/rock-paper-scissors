@@ -1,5 +1,4 @@
 
-
 function randomNumber(min,max){
     let newRandNum = Math.floor(Math.random()*(max - min) + min);
     return newRandNum;
@@ -8,11 +7,32 @@ function randomNumber(min,max){
 function computerPlay(){
     let computerSelect = options[randomNumber(0,3)];
     computerSelect = computerSelect.id
-    return computerSelect
+    return computerSelect;
 }
+
+function playAgain(){
+        const playAgain = document.createElement('div');
+        playAgain.textContent = "Play Again";
+        playAgain.classList.add('playAgain');
+        playAgain.style.cssText = "backgroundColor: rgba(19, 148, 106); borderRadius: 3px; width: 20%; height: 5%; margin: 0 auto";
+        const gameCont = document.getElementById('gamecontainer');
+        gameCont.appendChild(playAgain);
+        playAgain.addEventListener('click', function(){
+                scores = [0,0]; 
+                gameCont.removeChild(playAgain); 
+                announcement.textContent = "New Game. Select your warrior!"; 
+                player.textContent = ` PLAYER: ${ scores[0]}`; 
+                computer.textContent = ` COMPUTER: ${ scores[1]}`
+        }); 
+        return; 
+ }
 
 
 function playRound(){ 
+
+        //if statement here 
+        //if condition true: add event listener and go through game loop 
+        //if false: remove event listeners 
         const announcement = document.getElementById('announcement');
         const player = document.getElementById('player');
         const computer = document.getElementById('computer');
@@ -38,40 +58,21 @@ function playRound(){
                 
         if      (scores[0] == 5 || scores[1] == 5){
                         if(scores[0] == 5){
-                              
                                 announcement.textContent = `You win, ${playerGo} kills ${computerGo }!  You win the game!`;
-                                // playAgain();
+                                playAgain();
                         }else if(scores[1] == 5){
-                             
                                 announcement.textContent = `You loose, ${computerGo} kills ${playerGo }! You loose the game!`;;
-                                // playAgain();
-                        }
-        }             
-        
+                                playAgain();
+                         }               
+                 }
 }
+                            
 
-//need to ass event listener to button 
-function playAgain(){
-     
-       const playAgain = document.createElement('button');
-       playAgain.textContent = "Play Again";
-       playAgain.style.cssText = "backgroundColor: rgba(19, 148, 106); borderRadius: 3px; width: 20%; height: 5%; margin: 0 auto";
-       document.getElementById('gamecontainer').appendChild(playAgain);
-       //playRound();
-       return;
-}
-    
-
-// function removeClick(){
-        
-//         return 1;
-// }
-
-// let remove = true;
-let scores = [0,0]; 
-const options = document.querySelectorAll('.img-options');
+let scores = [0,0];
+const options = document.querySelectorAll('.img-opts');
 options.forEach(option => option.addEventListener('click', playRound));
-// if(remove){options.forEach(option => option.removeEventListener('click', removeClick));}
+
+
 
  
 
