@@ -51,35 +51,45 @@ header{
     box-shadow:8px 8px 8px #adaca6;
 }
 
-.img-options-container{
+.options-container{
     display: flex;
     justify-content: center;
     width: 60%;
     margin: 0 auto 3% auto;
 }
 
-.img-options{
-   width: 85%;
+
+.option-btn{
+    width: 32%;
+    height: 150px;
+    margin: 15px;
+    border-radius: 3px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-#Insect-img,
-#Toad-img,
-#Snake-img{
-     width: 95%;
-     height: 95%;
-     margin: 20px;
-     box-shadow: 5px 5px 5px #adaca6;
-     border-radius: 3px;
+#Insect{
+    background-image: url("Images/insect.jpg");
 }
 
-#Insect-img:hover,
-#Toad-img:hover,
-#Snake-img:hover{
+#Toad{
+    background-image: url("Images/toad.jpg");
+}
+
+#Snake{
+    background-image: url("Images/snake.jpg");
+}
+
+#Insect:hover,
+#Toad:hover,
+#Snake:hover{
     transform: scale(1.01);
     transition-duration: 0.4s;
     box-shadow: 0 0 0 3px rgba(173, 172, 166, 0.6);
    
 }
+
 
 .score-container{
     width: 60%;
@@ -109,3 +119,4 @@ header{
     box-shadow: 0 0 3px;
     background-color: purple;
 }
+

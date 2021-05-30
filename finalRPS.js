@@ -23,16 +23,15 @@ function playAgain(){
                 announcement.textContent = "New Game. Select your warrior!"; 
                 player.textContent = ` PLAYER: ${ scores[0]}`; 
                 computer.textContent = ` COMPUTER: ${ scores[1]}`
+                document.getElementById('Insect').disabled = false;
+                document.getElementById('Toad').disabled = false;
+                document.getElementById('Snake').disabled = false;
         }); 
         return; 
  }
 
 
 function playRound(){ 
-
-        //if statement here 
-        //if condition true: add event listener and go through game loop 
-        //if false: remove event listeners 
         const announcement = document.getElementById('announcement');
         const player = document.getElementById('player');
         const computer = document.getElementById('computer');
@@ -58,9 +57,15 @@ function playRound(){
                 
         if      (scores[0] == 5 || scores[1] == 5){
                         if(scores[0] == 5){
+                                document.getElementById('Insect').disabled = true;
+                                document.getElementById('Toad').disabled = true;
+                                document.getElementById('Snake').disabled = true;
                                 announcement.textContent = `You win, ${playerGo} kills ${computerGo }!  You win the game!`;
                                 playAgain();
                         }else if(scores[1] == 5){
+                                document.getElementById('Insect').disabled = true;
+                                document.getElementById('Toad').disabled = true;
+                                document.getElementById('Snake').disabled = true;
                                 announcement.textContent = `You loose, ${computerGo} kills ${playerGo }! You loose the game!`;;
                                 playAgain();
                          }               
@@ -69,7 +74,7 @@ function playRound(){
                             
 
 let scores = [0,0];
-const options = document.querySelectorAll('.img-opts');
+const options = document.querySelectorAll('.option-btn');
 options.forEach(option => option.addEventListener('click', playRound));
 
 
