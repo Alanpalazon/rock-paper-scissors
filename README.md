@@ -8,3 +8,10 @@ Learning outcomes:
         .function parameters
     -console logging
     
+    
+    
+UPDATE 30/5/2021
+
+game interface added making use of newly learnt JS events/event listeners etc.
+game now complete 
+    
